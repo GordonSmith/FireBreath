@@ -18,6 +18,12 @@ set (CMAKE_BACKWARDS_COMPATIBILITY 2.6)
 
 Project (FireBreath)
 
+if (NOT (CMAKE_MAJOR_VERSION LESS 3))
+   cmake_policy ( SET CMP0045 OLD )
+   cmake_policy ( SET CMP0046 NEW )
+   cmake_policy ( SET CMP0053 OLD )
+endif()
+
 # Allow super-projects to disable firebreath-specific git operations.
 if(NOT FIREBREATH_AUTO_GIT)
     set(FIREBREATH_AUTO_GIT ON)
